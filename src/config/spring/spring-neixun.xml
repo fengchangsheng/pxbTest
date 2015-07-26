@@ -5,4 +5,5 @@
 
 <beans>
 	<bean id="neixunService" class="com.bronzesoft.pxb.neixun.service.impl.NeixunService"></bean>
+	<bean id="roleService" class="com.bronzesoft.pxb.platform.core.service.imp.RoleService"></bean>
 </beans>

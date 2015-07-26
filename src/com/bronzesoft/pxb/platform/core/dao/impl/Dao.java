@@ -26,7 +26,6 @@ public class Dao implements IDao {
 
 	private Session getSession() {
 		Session session = sessionFactory.getCurrentSession();
-		System.out.println(session==null);
 		return session;
 	}
 	
@@ -160,6 +159,26 @@ public class Dao implements IDao {
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+	
+	public List findBySQl(String sql, Object[] values){
+		Session session = null;
+		try {
+			session = this.openSession();
+			Query query = session.createSQLQuery(sql);
+
+			if (values != null) { // prevent null point exception
+				for (int i = 0; i < values.length; i++) {
+					query.setParameter(i, values[i]);
+				}
+			}
+
+			return query.list();
+		} catch (Exception e) {
+			throw new DBException(e.getMessage());
+		} finally {
+			session.close();
+		}
 	}
 
 }

@@ -85,6 +85,13 @@ public interface IDao {
 	 * @throws DBException
 	 */
 	public void remove(String hql, Object[] values) throws DBException;
+	
+	/**
+	 * @param sql
+	 * @param values
+	 * @return 
+	 */
+	public List findBySQl(String sql, Object[] values);
 
 	
 

@@ -5,5 +5,8 @@
 <hibernate-configuration>
     <session-factory>
         <mapping class="com.bronzesoft.pxb.neixun.model.NeixunProject"/>
+        <mapping class="com.bronzesoft.pxb.platform.core.model.User"/>
+        <mapping class="com.bronzesoft.pxb.platform.core.model.Role"/>
+        <mapping class="com.bronzesoft.pxb.platform.core.model.Authority"/>
     </session-factory>
 </hibernate-configuration>
